@@ -40,20 +40,15 @@ class Program
         static void Main()
         {
         DisplayWelcome();
+
         string userName = PromptUserName();
         int num = PromptUserNumber();
+
         int squareNumber = SquareNumber(num);
+        
         DisplayResult(userName, squareNumber);
         }
 
         Main();
-
-        
-
-
-
-
-
-
     }
 }
