@@ -31,6 +31,9 @@ class Program
 
             // Write
             if (choice == 1) {
+                
+                Console.WriteLine("What did you eat for lunch today? ");
+                string lunch = Console.ReadLine();
 
                 string prompt = journalPrompts[new Random().Next(0, journalPrompts.Length)];
                 Console.WriteLine(prompt);
@@ -40,7 +43,7 @@ class Program
                 DateTime theCurrentTime = DateTime.Now;
                 string dateText = theCurrentTime.ToShortDateString();
 
-                journalInstance.AddEntry(writing, prompt, dateText);
+                journalInstance.AddEntry(writing, prompt, dateText, lunch);
             }
 
             // Display
@@ -55,7 +58,7 @@ class Program
 
                 string[] lines = File.ReadAllLines(filename);
                 journalInstance = new Journal();
-                journalInstance.loadedFileLines = lines;
+                journalInstance._loadedFileLines = lines;
             }
 
             // Save to File
