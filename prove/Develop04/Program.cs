@@ -18,6 +18,7 @@ class Program
             if (userInput == 1) 
             {
                 BreathingActivity breathing = new BreathingActivity();
+                Console.Clear();
                 breathing.DisplayBeginMessage();
                 int breathTime = breathing.PromptTimer();
                 breathing.PrepareUser();
@@ -29,6 +30,7 @@ class Program
             else if (userInput == 2) 
             {
                 ReflectingActivity reflecting = new ReflectingActivity();
+                Console.Clear();
                 reflecting.DisplayBeginMessage();
                 int reflectTime = reflecting.PromptTimer();
                 reflecting.PrepareUser();
@@ -41,6 +43,7 @@ class Program
             else if (userInput == 3) 
             {
                 ListingActivity listing = new ListingActivity();
+                Console.Clear();
                 listing.DisplayBeginMessage();
                 int listTime = listing.PromptTimer();
                 listing.PrepareUser();

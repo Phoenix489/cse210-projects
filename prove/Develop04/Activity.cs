@@ -53,6 +53,17 @@ public class Activity
         }
     }
 
+    public void Countdown(int beginTime) 
+    {
+        Console.Write($"You may begin in: ");
+            for (int i = beginTime; i > 0; i--) 
+            {
+                Console.Write($"{i}");
+                Thread.Sleep(1000);
+                Console.Write("\b \b");
+            }
+    }
+
     public void CongratulateUser()
     {
         Console.WriteLine("\nWell Done!");

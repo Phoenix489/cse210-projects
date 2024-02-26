@@ -28,13 +28,7 @@ class ListingActivity : Activity
         Console.WriteLine($"--- {_promptList[randomIndex]} ---\n");
 
         //Countdown till beginning
-        Console.Write($"You may begin in: ");
-            for (int i = 8; i > 0; i--) 
-            {
-                Console.Write($"{i}");
-                Thread.Sleep(1000);
-                Console.Write("\b \b");
-            }
+        Countdown(8);
     }
 
     public void RecordResponses(int _time)
