@@ -8,7 +8,7 @@ class BreathingActivity : Activity
     }
 
     //Methods
-    public void BreathCounter(int _time)
+    public override void DoActivity(int _time)
     {
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(_time);

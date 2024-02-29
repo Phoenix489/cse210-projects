@@ -31,8 +31,11 @@ class ListingActivity : Activity
         Countdown(8);
     }
 
-    public void RecordResponses(int _time)
+    public override void DoActivity(int _time)
     {
+        //Call Function
+        DisplayPrompt();
+
         //Set Timer
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(_time);
@@ -40,7 +43,6 @@ class ListingActivity : Activity
         //Set ResponseCount - Create Response List
         int responseCount = 0;
         List<string> responses = new List<string>();
-
 
         //Formatting
         Console.WriteLine("");

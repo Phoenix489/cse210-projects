@@ -13,17 +13,12 @@ class Program
             Console.Write("Select a choice from the menu: ");
             userInput = int.Parse(Console.ReadLine());
 
-
             //Breathing Activity
             if (userInput == 1) 
             {
                 BreathingActivity breathing = new BreathingActivity();
                 Console.Clear();
-                breathing.DisplayBeginMessage();
-                int breathTime = breathing.PromptTimer();
-                breathing.PrepareUser();
-                breathing.BreathCounter(breathTime);
-                breathing.CongratulateUser();
+                breathing.Run();
             }
 
             //Reflecting Activity
@@ -31,12 +26,7 @@ class Program
             {
                 ReflectingActivity reflecting = new ReflectingActivity();
                 Console.Clear();
-                reflecting.DisplayBeginMessage();
-                int reflectTime = reflecting.PromptTimer();
-                reflecting.PrepareUser();
-                reflecting.DisplayRandomPrompt();
-                reflecting.DisplayPonderQuestions(reflectTime);
-                reflecting.CongratulateUser();
+                reflecting.Run();
             }
 
             //Listing Activity
@@ -44,12 +34,7 @@ class Program
             {
                 ListingActivity listing = new ListingActivity();
                 Console.Clear();
-                listing.DisplayBeginMessage();
-                int listTime = listing.PromptTimer();
-                listing.PrepareUser();
-                listing.DisplayPrompt();
-                listing.RecordResponses(listTime);
-                listing.CongratulateUser();
+                listing.Run();
             }
 
             //Quit
@@ -58,9 +43,10 @@ class Program
                 Console.WriteLine("\nHave a blessed day!\n");
             }
 
-            else 
+            else
             {
-                Console.WriteLine("Invalid Input: Please enter a number based on the menu choices.");
+                Console.WriteLine("Invalid Number: Please enter a number based on the menu choices.");
+                Thread.Sleep(5000);
             }
         }
     }

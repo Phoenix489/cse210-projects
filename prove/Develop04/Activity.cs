@@ -64,6 +64,20 @@ public class Activity
             }
     }
 
+    public virtual void DoActivity(int _time) 
+    {
+        return ;
+    }
+
+    public virtual void Run()
+    {
+        DisplayBeginMessage();
+        _time = PromptTimer();
+        PrepareUser();
+        DoActivity(_time);
+        CongratulateUser();
+    }
+
     public void CongratulateUser()
     {
         Console.WriteLine("\nWell Done!");

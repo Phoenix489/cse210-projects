@@ -42,10 +42,13 @@ class ReflectingActivity : Activity
         Console.Clear();
     }
 
-    public void DisplayPonderQuestions(int _time)
+    public override void DoActivity(int _time)
     {
+        DisplayRandomPrompt();
+        
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(_time);
+
 
         while (DateTime.Now < endTime)
         {
