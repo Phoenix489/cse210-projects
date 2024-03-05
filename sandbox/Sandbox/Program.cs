@@ -4,30 +4,54 @@ class Program
 {
     static void Main(string[] args)
     {
+        SalaryEmployee salaryEmployee = new SalaryEmployee("John", 96000);
+        HourlyEmployee hourlyEmployee = new HourlyEmployee("Jane", 13.50, 40);
 
-        Console.WriteLine("Get ready...");
-        //Animation List 
-        List<string> animationStrings = new List<string>();
-        animationStrings = ["|", "/", "-", "\\", "|", "/", "-", "\\"];
+        Console.WriteLine($"{salaryEmployee.Name} makes ${salaryEmployee.CalculatePay():N2} bi-weekly.");
+        Console.WriteLine($"{hourlyEmployee.Name} makes ${hourlyEmployee.CalculatePay():N2} bi-weekly.");
+    }
+}
 
-        //Set duration for 5 seconds
-        DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(5);
+abstract class Employee
+{
+    public string Name;
 
-        int i = 0;
+    public Employee(string Name)
+    {
+        this.Name = Name;
+    }
+    public abstract decimal CalculatePay();
+}
 
-        while (DateTime.Now < endTime)
-        {
-            string s = animationStrings[i];
-            Console.Write(s);
-            Thread.Sleep(250);
-            Console.Write("\b \b");
-            i++;
-            
-            if (i >= animationStrings.Count)
-            {
-                i = 0;
-            }
-        }
+class SalaryEmployee: Employee
+{
+    protected decimal annualSalary;
+
+    public SalaryEmployee(string name, float annualSalary) : base(name)
+    {
+        this.annualSalary = (decimal )annualSalary;
+    }
+
+    public override decimal CalculatePay()
+    {
+        return  annualSalary / 26; //Bi-Weekly Pay
+    }
+}
+
+class HourlyEmployee : Employee
+{
+    protected decimal hourlyRate;
+
+    protected int hoursWorked;
+
+    public HourlyEmployee(string name, double hourlyRate, int hoursWorked) : base(name)
+    {
+        this.hourlyRate = (decimal) hourlyRate;
+        this.hoursWorked = hoursWorked;
+    }
+
+    public override decimal CalculatePay()
+    {
+        return (hourlyRate * hoursWorked) * 2; // Biweekly Pay
     }
 }
