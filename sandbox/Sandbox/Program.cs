@@ -6,11 +6,13 @@ class Program
     static void Main(string[] args)
     {
     Toaster toaster = new Toaster();
-    Console.WriteLine(toaster.GetStatus());
+    Console.WriteLine(toaster.IsOn());
     toaster.TurnOn();
-    Console.WriteLine(toaster.GetStatus());
+    Console.WriteLine(toaster.IsOn());
+    Thread.Sleep(5000);
     toaster.TurnOff();
-    Console.WriteLine(toaster.GetStatus());
+    Console.WriteLine(toaster.IsOn());
+    Console.WriteLine(toaster.ElapsedTimeOn());
     }
 }
 
@@ -19,12 +21,18 @@ public abstract class SmartDevice
     protected Boolean _status;
     protected string _name;
     public DateTime _onTime;
-    public DateTime _offTime;
-    public DateTime _timeOn;
 
-    public Boolean GetStatus()
+    public string IsOn()
     {
-        return _status;
+        if (_status == true)
+        {
+            return $"{_name} is on.";
+        }
+
+        else 
+        {
+            return $"{_name} is off.";
+        }
     }
 
     public string GetName()
@@ -42,12 +50,12 @@ public abstract class SmartDevice
     public void TurnOff()
     {
         _status = false;
-        _offTime = DateTime.Now;
     }
 
-    public void TimeOn()
+    public string ElapsedTimeOn()
     {
-        // _timeOn = _offTime - _onTime; 
+        TimeSpan elapsedTime = DateTime.Now - _onTime;
+        return $"{_name} was on for: {elapsedTime}";
     }
 }
 
