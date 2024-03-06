@@ -2,56 +2,61 @@ using System;
 
 class Program
 {
+
     static void Main(string[] args)
     {
-        SalaryEmployee salaryEmployee = new SalaryEmployee("John", 96000);
-        HourlyEmployee hourlyEmployee = new HourlyEmployee("Jane", 13.50, 40);
-
-        Console.WriteLine($"{salaryEmployee.Name} makes ${salaryEmployee.CalculatePay():N2} bi-weekly.");
-        Console.WriteLine($"{hourlyEmployee.Name} makes ${hourlyEmployee.CalculatePay():N2} bi-weekly.");
+    Toaster toaster = new Toaster();
+    Console.WriteLine(toaster.GetStatus());
+    toaster.TurnOn();
+    Console.WriteLine(toaster.GetStatus());
+    toaster.TurnOff();
+    Console.WriteLine(toaster.GetStatus());
     }
 }
 
-abstract class Employee
+public abstract class SmartDevice
 {
-    public string Name;
+    protected Boolean _status;
+    protected string _name;
+    public DateTime _onTime;
+    public DateTime _offTime;
+    public DateTime _timeOn;
 
-    public Employee(string Name)
+    public Boolean GetStatus()
     {
-        this.Name = Name;
+        return _status;
     }
-    public abstract decimal CalculatePay();
+
+    public string GetName()
+    {
+        return _name;
+    }
+
+    public void TurnOn()
+    {
+        _status = true;
+        _onTime = DateTime.Now;
+
+    }
+
+    public void TurnOff()
+    {
+        _status = false;
+        _offTime = DateTime.Now;
+    }
+
+    public void TimeOn()
+    {
+        // _timeOn = _offTime - _onTime; 
+    }
 }
 
-class SalaryEmployee: Employee
+public class Toaster : SmartDevice
 {
-    protected decimal annualSalary;
-
-    public SalaryEmployee(string name, float annualSalary) : base(name)
+    public Toaster()
     {
-        this.annualSalary = (decimal )annualSalary;
+        _name = "Toaster";
+        _status = false;
     }
 
-    public override decimal CalculatePay()
-    {
-        return  annualSalary / 26; //Bi-Weekly Pay
-    }
-}
-
-class HourlyEmployee : Employee
-{
-    protected decimal hourlyRate;
-
-    protected int hoursWorked;
-
-    public HourlyEmployee(string name, double hourlyRate, int hoursWorked) : base(name)
-    {
-        this.hourlyRate = (decimal) hourlyRate;
-        this.hoursWorked = hoursWorked;
-    }
-
-    public override decimal CalculatePay()
-    {
-        return (hourlyRate * hoursWorked) * 2; // Biweekly Pay
-    }
 }
