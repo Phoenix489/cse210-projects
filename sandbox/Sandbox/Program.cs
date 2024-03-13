@@ -13,6 +13,7 @@ class Program
     toaster.TurnOff();
     Console.WriteLine(toaster.IsOn());
     Console.WriteLine(toaster.ElapsedTimeOn());
+    Console.WriteLine(toaster.Timer());
     }
 }
 
@@ -56,6 +57,18 @@ public abstract class SmartDevice
     {
         TimeSpan elapsedTime = DateTime.Now - _onTime;
         return $"{_name} was on for: {elapsedTime}";
+    }
+
+    public string Timer()
+    {
+        Console.WriteLine($"How long would you like the {_name} on for? ");
+        int duration = int.Parse(Console.ReadLine());
+
+        _status = true;
+        _onTime = DateTime.Now;
+
+        Thread.Sleep(duration);
+        return ElapsedTimeOn();
     }
 }
 

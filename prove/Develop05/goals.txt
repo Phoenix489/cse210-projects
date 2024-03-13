@@ -1,0 +1,5 @@
+1300
+EternalGoal:Poop ,Poop eryday,20,2
+ChecklistGoal:Eat burrito,prepare burrito,60,600,4,4
+SimpleGoal:Slap dat booty,front hand back hand,20,True
+SimpleGoal:Help People,try to help I guess even though you never have time for yourself,400,True
