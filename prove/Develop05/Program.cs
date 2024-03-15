@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Net;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
@@ -117,8 +118,26 @@ class Program
             //Quit
             else if (userInput == 6) 
             {
-                Console.Write(scoreboard.DisplayPoints());
-                Console.WriteLine($"\nHave a blessed day!");
+                Console.WriteLine("Did you save your goals? Are you sure you would like to quit? (Y/N)");
+                string response = Console.ReadLine();
+                response.ToLower();
+                if (response == "y")
+                {
+                    Console.Write(scoreboard.DisplayPoints());
+                    Console.WriteLine($"\nHave a blessed day!");
+                } 
+                else if (response == "n")
+                {
+                    userInput = 0;
+                    Console.WriteLine($"\nSave your file! Then quit!");
+                    Thread.Sleep(5000);
+                }
+                else
+                {
+                    userInput = 0;
+                    Console.WriteLine("Invalid Number: Please enter a number based on the menu choices.");
+                    Thread.Sleep(5000); 
+                }
             }
 
             else
