@@ -9,9 +9,4 @@ public class Comment
         _name = name;
         _commentText= text;
     }
-    // public string DisplayComment()
-    // {
-    //     return $"{_name} - {_commentText}";
-    // }
-
 }
