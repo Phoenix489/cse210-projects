@@ -5,17 +5,17 @@ class Program
     static void Main(string[] args)
     {
         // Creating address
-        Address address1 = new Address("123 Main St", "Anytown", "CA", "USA");
-        Address address2 = new Address("456 Elm St", "Othertown", "TX", "Mexico");
+        Address address1 = new Address("244 Scooby Doo Way", "SomePlace", "CA", "USA");
+        Address address2 = new Address("110 Tinroof", "Ebenezer", "Guadaljara", "Mexico");
 
         // Creating customers
-        Customer customer1 = new Customer("John Doe", address1);
-        Customer customer2 = new Customer("Jane Smith", address2);
+        Customer customer1 = new Customer("Ty Moulton", address1);
+        Customer customer2 = new Customer("Alex Pisarski", address2);
 
         // Creating products
-        Product product1 = new Product("Widget", "W1", 10.99, 2);
-        Product product2 = new Product("Gadget", "G1", 20.50, 1);
-        Product product3 = new Product("Thingamajig", "T1", 15.75, 3);
+        Product product1 = new Product("Snowboard", "PRD2376", 10.99, 2);
+        Product product2 = new Product("Boa Boots", "PRD8543", 20.50, 1);
+        Product product3 = new Product("Bindings", "PRD6190", 15.75, 3);
 
         // Creating orders
         Order order1 = new Order(customer1);
